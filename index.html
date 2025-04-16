@@ -2,7 +2,7 @@
 
 
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -143,7 +143,7 @@
             display: flex;
             flex-direction: column;
             z-index: 1000;
-            height: 100%;
+            height: 93%;
         }
         
         .logo {
@@ -282,6 +282,7 @@
             font-weight: 600;
             
             
+            
         }
         h1{
             font-size: 50px;            
@@ -317,7 +318,20 @@
 
         }
         
+        /* Main Container */
+            .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+            }
+            
         
+        .top-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 20px;
+        }
+
         .breadcrumb a {
             margin: 0 8px;
             font-size: 16px;
@@ -341,10 +355,28 @@
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            padding: 20px;
-            position: relative;
+            padding: 15px;
+            /*position: relative;*/
+            /*new add*/
+            margin-bottom: 15px;
+        }
+        .card1 {
+           /* background-color: var(--card-bg);*/
+            border-radius: var(--border-radius);
+           /* box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
+            padding: 15px;
+            /*position: relative;*/
+            /*new add*/
+            margin-bottom: 15px;
         }
         
+                    /* Small Card Styles */
+            .small-card {
+            display: flex;
+            flex-direction: column;
+            }
+
+
         .grid-con {
         display: grid;
         grid-template-columns: repeat(5, 1fr); /* Creates 3 columns with equal width */
@@ -422,6 +454,13 @@
            /* margin-bottom: 5px; */
             
     }
+    .cards-container1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+           /* margin-bottom: 5px; */
+            
+    }
         .card-full-width {
             grid-column: span 3;
         }
@@ -467,7 +506,9 @@
             width: 100%;
             border-collapse: collapse;
         }
-        
+        .table-card {
+    padding: 15px;
+}
         th, td {
             padding: 12px 15px;
             text-align: left;
@@ -550,12 +591,12 @@
         footer {
             text-align: center;
             padding: 20px;
-            margin-top: 20px;
+            margin-top: -20px;
             /* Remove the margin-left property */
             font-size: 14px;
             color: #fff;
             background-color: #1a2941;
-            position: relative;
+            position: fixed;
             width: 100%; /* Make it full width */
             z-index: 1010; /* Higher than sidebar's z-index (1000) */
 }
@@ -564,7 +605,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
 
         .stats-grid .card {
@@ -576,7 +617,28 @@
 
         .survey-card {
             grid-row: span 2;
+            margin-bottom: 15px;
         }
+
+       
+
+.metrics-row {
+    display: grid
+;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.metric-card {
+    padding: 20px;
+}
+
+.metric-header {
+    display: flex
+;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
 
         .stats-card {
             position: relative;
@@ -700,6 +762,13 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
+        .patient-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+}
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -727,9 +796,14 @@
         }
 
         table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 2px;
+    border-color: gray;
+}
 
         thead th {
             text-align: left;
@@ -815,6 +889,15 @@
             padding: 15px 20px;
             font-size: 12px;
             text-align: center;
+
+            /* Horizontal container */
+
+position: fixed;
+height: 52.09px;
+
+top: 673px;
+
+
         }
 
         footer a {
@@ -822,6 +905,29 @@
             text-decoration: none;
         }
         
+         /* Additional Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .top-row, .metrics-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .survey-card {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-row, .metrics-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .survey-card {
+    grid-column: span 1;
+  }
+}
+
+
+
     </style>
 </head>
 <body>
@@ -851,33 +957,33 @@
     <div class="sidebar-menu">
         <div style="background-color: white;" class="menu-item active grid-con">
             <i class="fas fa-th-large"></i>
-            <span>Dashboard</span>
+            <span style="width:100px; padding-left: 12px;">Dashboard</span>
         </div>
         
         <div class="menu-item  grid-con">
             <i class="fas fa-envelope"></i>
-            <span>Email</span>
+            <span style="width:100px; padding-left: 12px;">Email</span>
             <div class="badge-count">5</div>
         </div>
         
         <div class="menu-item  grid-con">
             <i class="fas fa-calendar"></i>
-            <span>Calendar</span>
+            <span style="width:100px; padding-left: 12px;">Calendar</span>
         </div>
         
         <div class="menu-item grid-con">
             <i class="fas fa-calendar-check"></i>
-            <span>Appointment</span>
+            <span style="width:100px; padding-left: 12px;">Appointment</span>
         </div>
         
         <div class="menu-item grid-con">
             <i class="fas fa-user-md"></i>
-            <span>Doctors</span>
+            <span style="width:100px; padding-left: 12px;">Doctors</span>
         </div>
         
         <div class="menu-item grid-con">
             <i class="fas fa-users"></i>
-            <span>Other Staff</span>
+            <span style="width:100px; padding-left: 12px;">Other Staff</span>
         </div>
         
         <div class="menu-item grid-con">
@@ -887,28 +993,28 @@
         
         <div class="menu-item  grid-con">
             <i class="fas fa-door-open"></i>
-            <span>Room Allotment</span>
+            <span style="width:140px; padding-left: 12px;">Room Allotment</span>
         </div>
         
         <div class="menu-item grid-con">
             <i class="fas fa-credit-card"></i>
-            <span>Payments</span>
+            <span style="width:100px; padding-left: 12px;">Payments</span>
         </div>
         
         <div class="menu-item grid-con">
             <i class="fas fa-cog"></i>
-            <span>Widget</span>
+            <span style="width:100px; padding-left: 12px;">Widget</span>
         </div>
         
         <div class="menu-item grid-con">
             <i class="fas fa-puzzle-piece"></i>
-            <span>UI Elements</span>
+            <span style="width:100px; padding-left: 12px;">UI Elements</span>
             <div class="badge-count">10</div>
         </div>
         
         <div class="menu-item grid-con">
             <i class="fas fa-layer-group"></i>
-            <span>Material Elements</span>
+            <span style="width:140px; padding-left: 12px;">Material Elements</span>
         </div>
     </div>
 </aside>
@@ -923,7 +1029,7 @@
     <div class="user-menu">
         <div class="language-selector">
             <span style="padding-right: 7px;">English</span>
-            <i class="fas fa-chevron-down"></i>
+          <!--  <i class="fas fa-chevron-down"></i>-->
         </div>
         
         <div class="notifications badge" data-count="2">
@@ -937,7 +1043,7 @@
         <div class="user-profile">
             <img src="logo.jfif" alt="User" style="width: 32px; height: 32px; border-radius: 50%;  ">
             <span style="display: grid; padding-right: 7px; padding-left: 7px;">Kiran</span>
-            <i class="fas fa-chevron-down grid-con"></i>
+         <!--   <i class="fas fa-chevron-down grid-con"></i>-->
         </div>
     </div>
         </div>
@@ -946,42 +1052,157 @@
             <div class="header">
                 <h1>Dashboard</h1>
                 <div class="breadcrumb">
-                    <a href="#"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.90088 4.13159L2.86963 8.28784V12.7449C2.86963 12.991 3.06104 13.1824 3.30713 13.1824H6.36963C6.58838 13.1824 6.77979 12.991 6.77979 12.7449V10.1199C6.77979 9.90112 6.99854 9.68237 7.21729 9.68237H8.96729C9.21338 9.68237 9.40479 9.90112 9.40479 10.1199V12.7449C9.40479 12.991 9.62354 13.1824 9.84229 13.1824H12.9321C13.1509 13.1824 13.3696 12.991 13.3696 12.7449V8.2605L8.31104 4.13159C8.25635 4.0769 8.17432 4.04956 8.11963 4.04956C8.0376 4.04956 7.95557 4.0769 7.90088 4.13159ZM15.8579 6.948L13.5884 5.06128V1.28784C13.5884 1.09644 13.4243 0.959717 13.2603 0.959717H11.729C11.5376 0.959717 11.4009 1.09644 11.4009 1.28784V3.25659L8.93994 1.23315C8.72119 1.06909 8.42041 0.959717 8.11963 0.959717C7.7915 0.959717 7.49072 1.06909 7.27197 1.23315L0.354004 6.948C0.271973 7.00269 0.217285 7.11206 0.217285 7.19409C0.217285 7.27612 0.271973 7.35815 0.299316 7.41284L1.01025 8.2605C1.06494 8.34253 1.14697 8.36987 1.25635 8.36987C1.33838 8.36987 1.42041 8.34253 1.4751 8.28784L7.90088 3.0105C7.95557 2.95581 8.0376 2.92847 8.11963 2.92847C8.17432 2.92847 8.25635 2.95581 8.31104 3.0105L14.7368 8.28784C14.7915 8.34253 14.8735 8.36987 14.9556 8.36987C15.0649 8.36987 15.147 8.34253 15.2017 8.2605L15.9126 7.41284C15.9673 7.35815 15.9946 7.27612 15.9946 7.19409C15.9946 7.11206 15.9399 7.00269 15.8579 6.948Z" fill="#AAAAAA"/>
-                        </svg>
+                    <a href="#">
                         Home</a>
                     <span> < </span>
                     <a href="#">Dashboard</a>
                 </div>
             </div>
+
+            <div class="dashboard-container">
             
-            <div class="stats-grid">
-                <div class="stats-card card cards-container">
-                    <h3>New Patients</h3>
-                    <div class="number" style="color: #2e9e5b;">125</div>
-                    <div class="progress-bar">
-                        <div class="progress green" style="width: 65%;"></div>
+                <div class="top-row">
+                    <div class="stats-card card cards-container small-card">
+                        <h3>New Patients</h3>
+                        <div class="number" style="color: #2e9e5b;">125</div>
+                        <div class="progress-bar">
+                            <div class="progress green" style="width: 65%;"></div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="newPatientsChart"></canvas>
+                        </div>
                     </div>
-                    <div class="chart-container">
-                        <canvas id="newPatientsChart"></canvas>
+                    
+                    <div class="stats-card card cards-container">
+                        <h3>OPD Patients</h3>
+                        <div class="number" style="color: #36a2eb;">218</div>
+                        <div class="progress-bar">
+                            <div class="progress pink" style="width: 45%;"></div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="opdPatientsChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div  class="stats-card card survey-card ">
+                        <div class="card-header">
+                            <h3>HOSPITAL SURVEY</h3>
+                            <div  class="controls">
+                                <button class="control-button">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button class="control-button">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div style="position: relative; width: 98.4%; height: 80%;">
+                            <canvas id="hospitalSurveyChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div  class="stats-card card cards-container">
+                        <h3>Today's Operations</h3>
+                        <div class="number" style="color: #2e9e5b;">25</div>
+                        <div class="progress-bar">
+                            <div class="progress green" style="width: 40%;"></div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="operationsChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-card card cards-container">
+                        <h3>Visitors</h3>
+                        <div class="number" style="color: #ff9f40;">2,479</div>
+                        <div class="progress-bar">
+                            <div class="progress orange" style="width: 75%;"></div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="visitorsChart"></canvas>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="stats-card card cards-container">
-                    <h3>OPD Patients</h3>
-                    <div class="number" style="color: #36a2eb;">218</div>
-                    <div class="progress-bar">
-                        <div class="progress pink" style="width: 45%;"></div>
+                <div class="metrics-row">
+                    <div class="card metric-card">
+                        <h3>
+                            New Patient
+                            <span class="growth-tag positive">+25% high than last month</span>
+                        </h3>
+                        <div class="stats-tabs">
+                            <div class="stats-tab">
+                                <p>Overall Growth</p>
+                                <p>35.80%</p>
+                            </div>
+                            <div class="stats-tab">
+                                <p>Monthly</p>
+                                <p>45.20%</p>
+                            </div>
+                            <div class="stats-tab">
+                                <p>Day</p>
+                                <p>5.50%</p>
+                            </div>
+                        </div>
+                        <div style="position: relative; width: 98.4%; height: 80%;" class="chart-wrapper">
+                            <canvas id="newPatientChart"></canvas>
+                        </div>
                     </div>
-                    <div class="chart-container">
-                        <canvas id="opdPatientsChart"></canvas>
+                    
+                    <div class="card metric-card">
+                        <h3>
+                            Heart Surgeries
+                            <span class="growth-tag negative">-20% Low than last month</span>
+                        </h3>
+                        <div class="stats-tabs">
+                            <div class="stats-tab">
+                                <p>Overall Growth</p>
+                                <p>20.60%</p>
+                            </div>
+                            <div class="stats-tab">
+                                <p>Monthly</p>
+                                <p>65.30%</p>
+                            </div>
+                            <div class="stats-tab">
+                                <p>Day</p>
+                                <p>4.90%</p>
+                            </div>
+                        </div>
+                        <div style="position: relative; width: 98.4%; height: 80%;" class="chart-wrapper">
+                            <canvas id="heartSurgeriesChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card metric-card">
+                        <h3>
+                            Medical Treatment
+                            <span class="growth-tag positive">+10% high than last month</span>
+                        </h3>
+                        <div class="stats-tabs">
+                            <div class="stats-tab">
+                                <p>Overall Growth</p>
+                                <p>38.40%</p>
+                            </div>
+                            <div class="stats-tab">
+                                <p>Monthly</p>
+                                <p>52.49%</p>
+                            </div>
+                            <div class="stats-tab">
+                                <p>Day</p>
+                                <p>4.70%</p>
+                            </div>
+                        </div>
+                        <div style="position: relative; width: 98.4%; height: 80%;" class="chart-wrapper">
+                            <canvas id="medicalTreatmentChart"></canvas>
+                        </div>
                     </div>
                 </div>
                 
-                <div  class="stats-card card survey-card cards-container">
+                <div class="card1 table-card">
                     <div class="card-header">
-                        <h3>HOSPITAL SURVEY</h3>
-                        <div  class="controls">
+                        <h3>ADMIT PATIENT LIST</h3>
+                        
+                        <div class="controls">
                             <button class="control-button">
                                 <i class="fas fa-minus"></i>
                             </button>
@@ -990,279 +1211,166 @@
                             </button>
                         </div>
                     </div>
-                    <div style="position: relative; width: 98.4%; height: 80%;">
-                        <canvas id="hospitalSurveyChart"></canvas>
-                    </div>
+                    <table class="patient-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Assigned Doctor</th>
+                                <th>Date Of Admit</th>
+                                <th>Diseases</th>
+                                <th>Room No</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Jena Brincker</td>
+                                <td>Dr.Kenny Josh</td>
+                                <td>27/05/2016</td>
+                                <td><span class="disease-tag influenza">INFLUENZA</span></td>
+                                <td>101</td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="action-button">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="action-button delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Mark Hay</td>
+                                <td>Dr. Mark</td>
+                                <td>26/05/2017</td>
+                                <td><span class="disease-tag cholera">CHOLERA</span></td>
+                                <td>105</td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="action-button">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="action-button delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Anthony Davie</td>
+                                <td>Dr.Cinnabar</td>
+                                <td>21/05/2018</td>
+                                <td><span class="disease-tag amoebasis">AMOEBASIS</span></td>
+                                <td>106</td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="action-button">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="action-button delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>David Perry</td>
+                                <td>Dr.Felix</td>
+                                <td>20/04/2016</td>
+                                <td><span class="disease-tag jaundice">JAUNDICE</span></td>
+                                <td>105</td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="action-button">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="action-button delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Anthony Davie</td>
+                                <td>Dr.Beryl</td>
+                                <td>24/05/2016</td>
+                                <td><span class="disease-tag leptospirosis">LEPTOSPIROSIS</span></td>
+                                <td>102</td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="action-button">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="action-button delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Alan Gilchrist</td>
+                                <td>Dr.Joshep</td>
+                                <td>22/05/2016</td>
+                                <td><span class="disease-tag hepatitis">HEPATITIS</span></td>
+                                <td>103</td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="action-button">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="action-button delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Mark Hay</td>
+                                <td>Dr.Jayesh</td>
+                                <td>18/06/2016</td>
+                                <td><span class="disease-tag typhoid">TYPHOID</span></td>
+                                <td>107</td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="action-button">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="action-button delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Sue Woodger</td>
+                                <td>Dr.Sharma</td>
+                                <td>17/05/2016</td>
+                                <td><span class="disease-tag malaria">MALARIA</span></td>
+                                <td>108</td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="action-button">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button class="action-button delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                
-                <div  class="stats-card card cards-container">
-                    <h3>Today's Operations</h3>
-                    <div class="number" style="color: #2e9e5b;">25</div>
-                    <div class="progress-bar">
-                        <div class="progress green" style="width: 40%;"></div>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="operationsChart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="stats-card card cards-container">
-                    <h3>Visitors</h3>
-                    <div class="number" style="color: #ff9f40;">2,479</div>
-                    <div class="progress-bar">
-                        <div class="progress orange" style="width: 75%;"></div>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="visitorsChart"></canvas>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="detailed-stats-grid">
-                <div class="detailed-stats-card">
-                    <h3>
-                        New Patient
-                        <span class="growth-tag positive">+25% high than last month</span>
-                    </h3>
-                    <div class="stats-tabs">
-                        <div class="stats-tab">
-                            <p>Overall Growth</p>
-                            <p>35.80%</p>
-                        </div>
-                        <div class="stats-tab">
-                            <p>Monthly</p>
-                            <p>45.20%</p>
-                        </div>
-                        <div class="stats-tab">
-                            <p>Day</p>
-                            <p>5.50%</p>
-                        </div>
-                    </div>
-                    <div class="chart-wrapper">
-                        <canvas id="newPatientChart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="detailed-stats-card">
-                    <h3>
-                        Heart Surgeries
-                        <span class="growth-tag negative">-20% Low than last month</span>
-                    </h3>
-                    <div class="stats-tabs">
-                        <div class="stats-tab">
-                            <p>Overall Growth</p>
-                            <p>20.60%</p>
-                        </div>
-                        <div class="stats-tab">
-                            <p>Monthly</p>
-                            <p>65.30%</p>
-                        </div>
-                        <div class="stats-tab">
-                            <p>Day</p>
-                            <p>4.90%</p>
-                        </div>
-                    </div>
-                    <div class="chart-wrapper">
-                        <canvas id="heartSurgeriesChart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="detailed-stats-card">
-                    <h3>
-                        Medical Treatment
-                        <span class="growth-tag positive">+10% high than last month</span>
-                    </h3>
-                    <div class="stats-tabs">
-                        <div class="stats-tab">
-                            <p>Overall Growth</p>
-                            <p>38.40%</p>
-                        </div>
-                        <div class="stats-tab">
-                            <p>Monthly</p>
-                            <p>52.49%</p>
-                        </div>
-                        <div class="stats-tab">
-                            <p>Day</p>
-                            <p>4.70%</p>
-                        </div>
-                    </div>
-                    <div class="chart-wrapper">
-                        <canvas id="medicalTreatmentChart"></canvas>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="patient-list-card">
-                <div class="card-header">
-                    <h3>ADMIT PATIENT LIST</h3>
-                    <div class="controls">
-                        <button class="control-button">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button class="control-button">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Assigned Doctor</th>
-                            <th>Date Of Admit</th>
-                            <th>Diseases</th>
-                            <th>Room No</th>
-                            <th>Edit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Jena Brincker</td>
-                            <td>Dr.Kenny Josh</td>
-                            <td>27/05/2016</td>
-                            <td><span class="disease-tag influenza">INFLUENZA</span></td>
-                            <td>101</td>
-                            <td>
-                                <div class="actions">
-                                    <button class="action-button">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button class="action-button delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Mark Hay</td>
-                            <td>Dr. Mark</td>
-                            <td>26/05/2017</td>
-                            <td><span class="disease-tag cholera">CHOLERA</span></td>
-                            <td>105</td>
-                            <td>
-                                <div class="actions">
-                                    <button class="action-button">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button class="action-button delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Anthony Davie</td>
-                            <td>Dr.Cinnabar</td>
-                            <td>21/05/2018</td>
-                            <td><span class="disease-tag amoebasis">AMOEBASIS</span></td>
-                            <td>106</td>
-                            <td>
-                                <div class="actions">
-                                    <button class="action-button">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button class="action-button delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>David Perry</td>
-                            <td>Dr.Felix</td>
-                            <td>20/04/2016</td>
-                            <td><span class="disease-tag jaundice">JAUNDICE</span></td>
-                            <td>105</td>
-                            <td>
-                                <div class="actions">
-                                    <button class="action-button">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button class="action-button delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Anthony Davie</td>
-                            <td>Dr.Beryl</td>
-                            <td>24/05/2016</td>
-                            <td><span class="disease-tag leptospirosis">LEPTOSPIROSIS</span></td>
-                            <td>102</td>
-                            <td>
-                                <div class="actions">
-                                    <button class="action-button">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button class="action-button delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Alan Gilchrist</td>
-                            <td>Dr.Joshep</td>
-                            <td>22/05/2016</td>
-                            <td><span class="disease-tag hepatitis">HEPATITIS</span></td>
-                            <td>103</td>
-                            <td>
-                                <div class="actions">
-                                    <button class="action-button">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button class="action-button delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Mark Hay</td>
-                            <td>Dr.Jayesh</td>
-                            <td>18/06/2016</td>
-                            <td><span class="disease-tag typhoid">TYPHOID</span></td>
-                            <td>107</td>
-                            <td>
-                                <div class="actions">
-                                    <button class="action-button">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button class="action-button delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Sue Woodger</td>
-                            <td>Dr.Sharma</td>
-                            <td>17/05/2016</td>
-                            <td><span class="disease-tag malaria">MALARIA</span></td>
-                            <td>108</td>
-                            <td>
-                                <div class="actions">
-                                    <button class="action-button">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button class="action-button delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
