@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -205,7 +205,7 @@
             padding: 20px 0;
             flex: 1;
             overflow-y: auto;
-            
+            justify-content: space-between;
             scroll-behavior: smooth;
             
 
@@ -294,7 +294,7 @@
             color: var(--muted-text);
             font-size: 16px;
             position: relative;
-            left:82.3%;
+            left:79.3%;
             right:69%;
             bottom:-81%;
             transform: translateY(-80px); /* Negative moves it up */
@@ -345,7 +345,11 @@
             position: relative;
         }
         
-        
+        .grid-con {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* Creates 3 columns with equal width */
+        gap: 1%; /* Adds 10px gap between grid items */
+    }
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -845,64 +849,64 @@
     </div>
     
     <div class="sidebar-menu">
-        <div style="background-color: white;" class="menu-item active">
+        <div style="background-color: white;" class="menu-item active grid-con">
             <i class="fas fa-th-large"></i>
             <span>Dashboard</span>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item  grid-con">
             <i class="fas fa-envelope"></i>
             <span>Email</span>
             <div class="badge-count">5</div>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item  grid-con">
             <i class="fas fa-calendar"></i>
             <span>Calendar</span>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item grid-con">
             <i class="fas fa-calendar-check"></i>
             <span>Appointment</span>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item grid-con">
             <i class="fas fa-user-md"></i>
             <span>Doctors</span>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item grid-con">
             <i class="fas fa-users"></i>
             <span>Other Staff</span>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item grid-con">
             <i class="fas fa-procedures"></i>
             <span>Patients</span>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item  grid-con">
             <i class="fas fa-door-open"></i>
             <span>Room Allotment</span>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item grid-con">
             <i class="fas fa-credit-card"></i>
             <span>Payments</span>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item grid-con">
             <i class="fas fa-cog"></i>
             <span>Widget</span>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item grid-con">
             <i class="fas fa-puzzle-piece"></i>
             <span>UI Elements</span>
             <div class="badge-count">10</div>
         </div>
         
-        <div class="menu-item">
+        <div class="menu-item grid-con">
             <i class="fas fa-layer-group"></i>
             <span>Material Elements</span>
         </div>
@@ -931,9 +935,11 @@
         </div>
         
         <div class="user-profile">
-            <img src="logo.jfif" alt="User" style="width: 32px; height: 32px; border-radius: 50%;">
-            <span>Kiran</span>
-            <i class="fas fa-chevron-down"></i>
+            <img src="logo.jfif" alt="User" style="width: 32px; height: 32px; border-radius: 50% ;">
+            <span style="display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Creates 3 columns with equal width */
+        gap: 1%; /* Adds 10px gap between grid items */">Kiran</span>
+            <i class="fas fa-chevron-down grid-con"></i>
         </div>
     </div>
         </div>
