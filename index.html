@@ -132,7 +132,7 @@
             font-size: 10px;
         }
         
-        .sidebar {
+       /* .sidebar {
             position: fixed;
             top: 0px;
             left: 0;
@@ -143,8 +143,22 @@
             display: flex;
             flex-direction: column;
             z-index: 1000;
-            height: 93%;
-        }
+            height: 100%;
+        }*/
+        .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    /* Calculate height to stop just before footer */
+    height: calc(100vh - 52px); /* 52px is the footer height */
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow-y: auto;
+}
         
         .logo {
             height: var(--header-height);
@@ -359,6 +373,7 @@
             /*position: relative;*/
             /*new add*/
             margin-bottom: 15px;
+            margin-left: 0px;
         }
         .card1 {
            /* background-color: var(--card-bg);*/
@@ -368,6 +383,17 @@
             /*position: relative;*/
             /*new add*/
             margin-bottom: 15px;
+        }
+
+        .card2 {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 15px;
+            /*position: relative;*/
+            /*new add*/
+            margin-bottom: 15px;
+            margin-left: 0px;
         }
         
                     /* Small Card Styles */
@@ -450,7 +476,7 @@
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 10px;
            /* margin-bottom: 5px; */
             
     }
@@ -588,19 +614,7 @@
             color: #dc2626;
         }
         
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: -20px;
-            /* Remove the margin-left property */
-            font-size: 14px;
-            color: #fff;
-            background-color: #1a2941;
-            position: fixed;
-            width: 100%; /* Make it full width */
-            z-index: 1010; /* Higher than sidebar's z-index (1000) */
-}
-
+       
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -882,23 +896,61 @@
         .actions {
             display: flex;
         }
+        
+/* Demo */
 
-        footer {
-            background-color: #252836;
+.site {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+.site-footer {
+  /*display: flex;*/
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--color--black);
+  min-height: 100px;
+  background: #222C3C;
+
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+/*
+footer {
+            text-align: center;
+            /*padding: 20px;
+           /* margin-top: -20px;
+            /* Remove the margin-left property 
+            font-size: 14px;
+            color: #fff;
+            
+        
+            width: 100%; /* Make it full width 
+           z-index: 1010; /* Higher than sidebar's z-index (1000) 
+
+
+           background-color: #252836;
             color: #888;
             padding: 15px 20px;
             font-size: 12px;
             text-align: center;
 
-            /* Horizontal container */
+         Horizontal container 
 
-position: fixed;
+position: relative;
 height: 52.09px;
 
-top: 673px;
+top:auto;
 
 
         }
+        
+        */
+
+        
 
         footer a {
             color: #4bc0c0;
@@ -928,10 +980,90 @@ top: 673px;
 
 
 
+/* Fix footer to ensure it's always at the bottom */
+footer {
+    background: #222C3C;
+
+    color: #888;
+    padding: 15px 20px;
+    font-size: 12px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 52px;
+    z-index: 1010;
+}
+
+/* Mobile specific adjustments for sidebar and footer */
+@media screen and (max-width: 768px) {
+   
+    
+    /* Fix footer */
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 1010;
+    }
+    
+    /* Create space at the bottom of the content to prevent overlap with footer */
+    .dashboard-container {
+        padding-bottom: 60px;
+    }
+    
+    /* Adjust breadcrumb positioning */
+    .breadcrumb {
+        left: auto;
+        right: auto;
+        position: sticky;
+        transform: none;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    
+}
+
+@media screen and (min-height: 900px) {
+    .sidebar {
+        height: calc(100vh - 52px);
+    }
+}
+
+/* For short screens, make sure content is scrollable */
+@media screen and (max-height: 600px) {
+    .sidebar {
+        height: calc(100vh - 2px);
+        overflow-y: auto;
+    }
+    
+    .main-content {
+        padding-bottom: 70px;
+    }
+}
+
+/* When printing or when footer should be part of normal flow for very long pages */
+@media print, screen and (min-height: 1200px) {
+    .sidebar {
+        height: calc(100% - 2px);
+    }
+    
+    footer {
+        position: relative;
+        margin-top: 20px;
+    }
+    
+    .main-content {
+        min-height: calc(100vh - 130px);
+    }
+}
+
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container site">
         <div class="sidebar">
             <!-- Sidebar content would go here -->
              <!-- Sidebar -->
@@ -1062,7 +1194,7 @@ top: 673px;
             <div class="dashboard-container">
             
                 <div class="top-row">
-                    <div class="stats-card card cards-container small-card">
+                    <div class="stats-card card2 cards-container small-card">
                         <h3>New Patients</h3>
                         <div class="number" style="color: #2e9e5b;">125</div>
                         <div class="progress-bar">
@@ -1073,7 +1205,7 @@ top: 673px;
                         </div>
                     </div>
                     
-                    <div class="stats-card card cards-container">
+                    <div class="stats-card card2 cards-container">
                         <h3>OPD Patients</h3>
                         <div class="number" style="color: #36a2eb;">218</div>
                         <div class="progress-bar">
@@ -1377,7 +1509,9 @@ top: 673px;
 
     
     <footer>
-        2021 © RadiStar Hospital Template By Rediaxtheme
+        <div class="site-footer">
+            2021 © RadiStar Hospital Template By Rediaxtheme
+        </div>
     </footer>
 
     <script>
